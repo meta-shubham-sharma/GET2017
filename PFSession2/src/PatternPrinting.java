@@ -70,7 +70,7 @@ public class PatternPrinting {
 			{
 				space = spaces(index,max);
 				number = numbers(index,max);
-				result[index-1] = space+number+space;
+				result[index-1] = space+number;
 			}
 			return result;
 		}
