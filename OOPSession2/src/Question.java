@@ -24,20 +24,26 @@ public class Question implements Comparable<Question> {
 	 * @return a 2D string matrix splitting the file input with ',' 
 	 */
 	public String[][] read(String filePath) {
-		String questions[][] = new String[5][];
+		String questions[][] = {};
 		int index = 0;
 		try {
 			FileInputStream fstream = new FileInputStream(filePath);
-			BufferedReader br = new BufferedReader(new InputStreamReader(
-					fstream));
+			BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+			while ( (str = br.readLine()) != null){
+				rows++;
+			}
+			questions = new String[rows][];
+			fstream = new FileInputStream(filePath);
+			br = new BufferedReader(new InputStreamReader(fstream));
 			String str = "";
 			while ((str = br.readLine()) != null) {								// Read the File Line By Line
 				questions[index++] = str.split(",");							// split the values in string matrix  
+			return questions;
 			}
 			br.close();
 			} catch (Exception e) {
+			return questions;
 			}
-		return questions;
 	}
 
 	/**
