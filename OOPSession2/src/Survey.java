@@ -25,7 +25,9 @@ public class Survey {
 			question = obj.read("C:/Users/User21/Desktop/Questions.txt");        // read method of question class read the file Questions and return a 2D string matrix splitted with "," 
 
 			for (int index = 0; index < noOfUsers; index++) {
+				System.out.println("Survey starts here :-");
 				obj.getInput(index + 1, question);								// get input from users according to the type of question and Report-B is generated 
+				System.out.println();
 			}
 
 			question = obj.read("C:/Users/User21/Desktop/Report-B.txt");		// read inputs from the Report-B and split them in 2D question matrix
