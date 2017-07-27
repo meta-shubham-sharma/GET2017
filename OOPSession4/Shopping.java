@@ -7,14 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Shopping implements Promotion,Action {
-	
-
-	public static void main(String args[]) {
-		 
-			}
-
-	
-	
+		
 	@Override
 	public double calculateDiscount(double Price, int quantity, double discount) {
 		// TODO Auto-generated method stub
