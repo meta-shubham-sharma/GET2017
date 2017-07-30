@@ -1,8 +1,10 @@
+/**
+ * class to add posts or records to user or organization 
+ */
 package SocialNetwork;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 
 public class Record {
@@ -70,15 +72,33 @@ public class Record {
 		this.content = content;
 	}
 
-	public void createRecord(String recordId, String userID, String content,
+	/**
+	 * 
+	 * @param recordId
+	 * @param userId
+	 * @param content
+	 * @param name
+	 */
+	public void createRecord(String recordId, String userId, String content,
 			String name) {
+		boolean flag = true;
 		Record record = new Record();
 		record.setrecordId(recordId);
-		record.setUserId(userID);
+		record.setUserId(userId);
 		record.setContent(content);
 		record.setName(name);
-		if (postOfUsers.containsKey(this.userId)) {
-			postOfUsers.get(userId).add(record);
+		if (postOfUsers.containsKey(userId)) {
+			for (Record r : postOfUsers.get(userId)) {
+				if (r.getrecordId().equals(recordId)) {
+					System.out
+							.println("Record Id already exist ! Give a unique id .");
+					flag = false;
+					break;
+				}
+			}
+			if (flag) {
+				postOfUsers.get(userId).add(record);
+			}
 		} else {
 			recordsList = new ArrayList<Record>();
 			recordsList.add(record);
@@ -86,25 +106,43 @@ public class Record {
 		}
 	}
 
-	public void printRecords() {
-		Iterator<Record> itr = postOfUsers.get(userId).iterator();
-		while (itr.hasNext()) {
-			Record temp = itr.next();
-			System.out.println("recordID : " + temp.getrecordId()
-					+ " title of post : " + temp.getName() + " content : "
-					+ temp.getContent());
+	/**
+	 * print records of user
+	 * 
+	 * @param userId
+	 */
+	public void printRecords(String userId) {
+		recordsList = postOfUsers.get(userId);
+		if ((!postOfUsers.containsKey(userId)) || recordsList.isEmpty()) {
+			System.out.println("No records to display");
+		} else {
+			for (Record r : recordsList) {
+				System.out.println("recordID : " + r.getrecordId()
+						+ " title of post : " + r.getName() + " content : "
+						+ r.getContent());
+			}
 		}
 	}
 
-	public void deleteRecord(String id) {
-		Iterator<Record> itr = postOfUsers.get(userId).iterator();
-		while (itr.hasNext()) {
-			Record temp = itr.next();
-			if (temp.recordId.equals(id)) {
-				postOfUsers.get(userId).remove(temp);
+	/**
+	 * delete records of user
+	 * 
+	 * @param recordId
+	 * @param userId
+	 */
+	public void deleteRecord(String recordId, String userId) {
+		recordsList = postOfUsers.get(userId);
+		boolean flag = true;
+		for (Record r : recordsList) {
+			if (r.getrecordId().equals(recordId)) {
+				recordsList.remove(r);
+				System.out.println("Record has been deleted");
+				flag = false;
+				break;
 			}
 		}
-		System.out.println("Record has been deleted");
-		printRecords();
+		if (flag) {
+			System.out.println("Record id is invalid");
+		}
 	}
 }
