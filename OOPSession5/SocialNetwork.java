@@ -1,102 +1,145 @@
+/**
+ * class to control social network
+ */
 package SocialNetwork;
+
 import java.util.*;
 
 public class SocialNetwork {
-	public static void main(String args[]){
+	public static void main(String args[]) {
 		Scanner scan = new Scanner(System.in);
-		Record record=new Record();
+		Record record = new Record();
 		FileHandling obj = new FileHandling();
-		String file = obj.read("Users.txt");
+		String file = obj.read("Users.txt"); // read all the information of
+												// users
 		Graph node = new Graph(file);
-		file = obj.read("Connections.txt");
+		file = obj.read("Connections.txt"); // read connections of user
 		Connection con = new Connection(file);
-		do{
-			System.out.println("1. Login");
+		do {
+			System.out.println("\n1. Login");
 			System.out.println("2. SignUp");
-			System.out.println("3. Exit");
+			System.out.println("3. Show Social Network");
+			System.out.println("4. Exit");
 			System.out.println("Enter your choice");
 			int input = scan.nextInt();
-			String name = "" , userID = "";
+			String name = "", userId = "";
 			boolean flag = true;
-			switch(input){
+			switch (input) {
 			case 1:
 				System.out.println("enter your userID ");
-				userID = scan.next();
-				while(!node.checkNode(userID)){
+				userId = scan.next();
+				while (!node.checkNode(userId)) { // check if user exist in
+													// social network
 					System.out.println("enter a valid userID ");
-					userID = scan.next();
-					}
-					System.out.println("Welcome !! "+ node.printName(userID));
-					do{
-					System.out.println("1. Edit profile");
+					userId = scan.next();
+				}
+				System.out.println("Welcome !! " + node.printName(userId));
+				do {
+					System.out.println("\n1. Edit profile");
 					System.out.println("2. Delete profile");
 					System.out.println("3. Add Record");
 					System.out.println("4. Delete Record");
-					System.out.println("5. Add connection");
-					System.out.println("6. Delete connection");
-					System.out.println("7. Back");
+					System.out.println("5. Show Records");
+					System.out.println("6. Add connection");
+					System.out.println("7. Delete connection");
+					System.out.println("8. Show profile");
+					System.out.println("9. Back");
 					input = scan.nextInt();
-					switch(input){
+					switch (input) {
 					case 1:
 						System.out.println("Edit your name");
 						name = scan.next();
-						node.editNode(userID,name);
+						node.editNode(userId, name);
 						break;
 					case 2:
-						node.deleteNode(userID);
+						node.deleteNode(userId);
+						flag = false;
 						break;
 					case 3:
 						System.out.println("Add id of your record");
 						String recordId = scan.next();
 						System.out.println("Add title of your record");
-						name= scan.next();
+						name = scan.next();
 						System.out.println("Add content of record");
 						String content = scan.next();
-						record.createRecord(recordId,userID,content,name);
+						record.createRecord(recordId, userId, content, name);
 						break;
 					case 4:
-						record.printRecords();
-						System.out.println("Enter id of record you want to delete");
+						System.out
+								.println("Enter id of record you want to delete");
 						recordId = scan.next();
-						record.deleteRecord(recordId);
+						record.deleteRecord(recordId, userId);
 						break;
 					case 5:
-						System.out.println("Enter id of the connection you want to add as a friend");
-						String friendId= scan.next();
-						con.addConnection(friendId,userID);
-						
+						record.printRecords(userId);
 						break;
 					case 6:
+						System.out
+								.println("Enter id of the connection you want to add as a friend");
+						String friendId = scan.next();
+						if (node.checkNode(friendId)) {
+							con.addConnection(friendId, userId);
+						} else {
+							System.out.println("User Id does not exist");
+						}
 						break;
 					case 7:
+						System.out
+								.println("Enter id of the connection you want to remove as a friend");
+						friendId = scan.next();
+						if (node.checkNode(friendId)) {
+							con.removeConnection(friendId, userId);
+						} else {
+							System.out.println("User Id does not exist");
+						}
+						break;
+					case 8:
+						System.out.println("User ID : " + userId);
+						System.out.println("Name : " + node.printName(userId));
+						record.printRecords(userId);
+						con.printConnections(userId);
+						break;
+					case 9:
 						flag = false;
 						break;
-					}}while(flag);
+					}
+				} while (flag);
 				break;
 			case 2:
 				System.out.println("1. Signup as User");
 				System.out.println("2. SignUp as Organization");
 				input = scan.nextInt();
-				switch(input){
+				switch (input) {
 				case 1:
 					System.out.println("enter your name ");
 					name = scan.next();
 					System.out.println("enter a userID ");
-					userID = scan.next();
-					node.createNode(new User(),name,userID);
+					userId = scan.next();
+					if (node.checkNode(userId)) {
+						System.out.println("User Already exist");
+					} else {
+						node.createNode(new User(), name, userId);
+					}
 					break;
 				case 2:
 					System.out.println("enter name of organization ");
 					name = scan.next();
 					System.out.println("enter a userID ");
-					userID = scan.next();
-					node.createNode(new Organization(),name,userID);
+					userId = scan.next();
+					if (node.checkNode(userId)) {
+						System.out.println("User Already exist");
+					} else {
+						node.createNode(new Organization(), name, userId);
+					}
 					break;
 				}
 				break;
 			case 3:
+				con.printNetwork();
+				break;
+			case 4:
 				System.exit(0);
 			}
-		}while(true);
+		} while (true);
 	}
 }
