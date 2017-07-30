@@ -1,3 +1,6 @@
+/**
+ * class to create connections with other members
+ */
 package SocialNetwork;
 
 import java.util.ArrayList;
@@ -10,6 +13,11 @@ public class Connection {
 
 	HashMap<String, List<String>> connectionMap = new HashMap<String, List<String>>();
 
+	/**
+	 * constructor to get list of connections
+	 * 
+	 * @param file
+	 */
 	public Connection(String file) {
 		String stringOutput[] = file.split("\n");
 		for (int index = 0; index < stringOutput.length; index++) {
@@ -22,6 +30,12 @@ public class Connection {
 		}
 	}
 
+	/**
+	 * add connection to a userId
+	 * 
+	 * @param friendId
+	 * @param userID
+	 */
 	public void addConnection(String friendId, String userID) {
 		// TODO Auto-generated method stub
 		if (connectionMap.containsKey((userID))) {
@@ -44,6 +58,12 @@ public class Connection {
 		}
 	}
 
+	/**
+	 * remove the connection from user
+	 * 
+	 * @param friendId
+	 * @param userID
+	 */
 	public void removeConnection(String friendId, String userID) {
 		// TODO Auto-generated method stub
 		if (connectionMap.get(userID).contains(friendId)) {
@@ -55,6 +75,11 @@ public class Connection {
 		}
 	}
 
+	/**
+	 * print all connections of user
+	 * 
+	 * @param userId
+	 */
 	public void printConnections(String userId) {
 		if (connectionMap.containsKey(userId)
 				&& (!connectionMap.get(userId).isEmpty())) {
@@ -64,6 +89,9 @@ public class Connection {
 		}
 	}
 
+	/**
+	 * print social network
+	 */
 	public void printNetwork() {
 		Iterator itr = connectionMap.entrySet().iterator();
 		while (itr.hasNext()) {
