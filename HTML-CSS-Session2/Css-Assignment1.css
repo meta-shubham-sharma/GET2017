@@ -1,0 +1,23 @@
+h2{
+	color:blue;
+    margin-left:20px;
+}
+#header{
+	background-color:lightblue;
+}
+.container{
+	display:flex;
+}
+#image{
+	margin-top:20px;
+	display:inline-block;
+	border:2px solid blue;
+	max-height:300px;
+	max-width:300px;
+}
+#information{
+	padding-left:40px;
+	height:auto;
+	width:600px;
+}
+
