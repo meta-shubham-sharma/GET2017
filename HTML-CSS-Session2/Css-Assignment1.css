@@ -1,0 +1,26 @@
+h2{
+	color:blue;
+    margin-left:20px;
+}
+#header{
+	background-color:lightblue;
+}
+.information{
+	margin-left:700px;
+	margin-top:30px;
+}
+#image{
+	float:left;
+	height:auto;
+	width:auto;
+	margin-left:140px;
+	margin-top:40px;
+}
+body{
+	border: 10px solid #808080;
+	border-radius:15px;
+}
+img{
+	height:auto;
+	width:350px;
+}
