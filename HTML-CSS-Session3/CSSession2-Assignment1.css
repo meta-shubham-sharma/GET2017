@@ -1,0 +1,52 @@
+#one,#two,#three,#four,#five{
+	height:100px;
+	width:100px;
+	border:2px solid black;
+}
+.main{
+	display:flex;
+	margin:200px 400px;
+}
+#one{
+	transition:0.6s;
+	text-align:center;
+}
+#one:hover{
+	transform:rotate(360deg);
+	transition:0.6s;
+	cursor:pointer;
+}
+#two{
+	margin-left:50px;
+	transition:0.6s;
+	text-align:center;
+}
+#two:hover{
+	transform:scale(2,3);
+	transition:0.6s;
+	cursor:pointer;
+}
+#three{
+	margin-left:50px;
+	text-align:center;
+}
+#three:hover{
+	transform:skew(20deg,30deg);
+	transition:0.6s;
+	cursor:pointer;
+}
+#four{
+	margin-left:50px;
+	text-align:center;
+}
+#four:hover{
+	transform:translate(0,100px);
+	transition:0.6s;
+	cursor:pointer;
+}
+#five{
+	margin-left:50px;
+	background-color:yellow;
+	text-align:center;
+	color:black;
+}
