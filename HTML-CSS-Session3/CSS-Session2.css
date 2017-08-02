@@ -1,0 +1,128 @@
+.header{
+	background-color:#2d3e50;
+	color:white;
+	height:60px;
+}
+#home{	
+padding:20px;
+float:right;
+}
+#tour{
+padding:20px;
+float:right;
+}
+#signup{
+padding:20px;
+float:right;
+}
+#heading{
+ float:left;
+margin-left:20px;	
+}
+a{
+text-decoration:none;
+color:white;
+}
+a:hover{
+	color:#328dd6;
+}
+.centre{
+	background-color:#328dd6;
+	color:white;
+	height:500px;
+}
+#cen{
+height:180px;
+}
+#centre1{
+	height:90px;
+	width:500px;
+	border:2px solid white;
+	margin-left:500px;
+	text-align:center;
+}
+#centre2{
+	margin-top:40px;
+	text-align:center;
+}
+#centre3{
+margin-left:650px;
+margin-top:50px;
+}
+button{
+	background-color:white;
+	color:#328dd6;
+	height:40px;
+	width:200px;
+	border:1px solid #328dd6;
+	border-radius:10px;
+	cursor:pointer;
+}
+#heading2{
+	text-align:center;
+}
+#parts{
+display:flex;
+padding:20px;
+}
+#parts p{
+	color:black;
+}
+#heading2{
+	padding-top:20px;
+	color:black;
+}
+#part1,#part2,#part3,#part4{
+	color:#328dd6;
+}
+.two{
+display:flex;
+background-color:#2d3e50;
+padding:25px;
+}
+#twopart{
+color:white;
+width:800px;
+margin-left:250px;
+padding-left:10px;
+}
+#image{
+margin-left:150px;
+}
+#heading3{
+padding-top:20px;
+text-align:center;
+}
+#threepart{
+display:flex;
+color:black;
+padding:10px;
+}
+#threepart1{
+padding:10px;
+}
+#threepart2{
+padding:10px;
+}
+#threepart button{
+	background-color:#328dd6;
+	color:white;
+	height:40px;
+	width:150px;
+	border:1px solid #328dd6;
+	border-radius:10px;
+	cursor:pointer;
+}
+#threepart h3{
+	color:#328dd6;
+}
+#footer{
+text-align:center;
+padding:10px;
+background-color:#2d3e50;
+height:80px;
+color:white;
+}
+body{
+background-color:#fdfff4;
+}
