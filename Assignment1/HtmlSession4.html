@@ -1,0 +1,90 @@
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="HtmlSession4.css">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>
+HTML-Session4-Assignment1
+</title>
+</head>
+<body>
+<h1>Contact Us Today !</h1>
+<div class="contact">
+<form action="#">
+<table align="center" cellspacing="25px">
+<tr>
+<td class="columns">First Name<sup>*</sup> </td>
+<td class="one" ><i class="fa fa-user" ></i><input class="textbox" type="text" name="firstname" placeholder="First Name" pattern="[a-zA-Z]+" size="30" title="Enter valid name with charachters" required></td>
+</tr>
+
+<tr>
+<td class="columns">Last Name<sup>*</sup> </td>
+<td class="one"><i class="fa fa-user"></i> <input class="textbox" type="text" name="lastname" placeholder="Last Name" pattern="[a-zA-Z]+" size="30" title="Enter valid name with charachters" required></td>
+</tr>
+
+<tr>
+<td class="columns">E-mail<sup>*</sup> </td>
+<td class="one"><i class="fa fa-envelope"></i> <input class="textbox" type="email" name="email" placeholder="E-mail Address"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}"  size="30" required></td>
+</tr>
+
+<tr>
+<td class="columns">Phone<sup>*</sup> </td>
+<td class="one"><i class="fa fa-phone"></i> <input class="textbox" type="phone" name="phone" placeholder="9876543210" size="30" pattern="[0-9]{6,12}" required title="Enter number between 6-12 digits"></td>
+</tr>
+
+<tr>
+<td class="columns">Address </td>
+<td class="one"><i class="fa fa-home"></i> <input class="textbox" type="text" name="address" placeholder="Address" size="30" ></td>
+</tr>
+
+<tr>
+<td class="columns">City<sup>*</sup> </td>
+<td class="one"><i class="fa fa-home"></i> <input class="textbox" type="text" name="city" placeholder="City" size="30" required></td>
+</tr>
+
+<tr>
+<td class="columns">State<sup>*</sup> </td>
+<td class="one"><i class="fa fa-list"></i> <select name="state" required>
+  <option value="Rajasthan">Rajasthan</option>
+  <option value="Bihar">Bihar</option>
+  <option value="Maharashtra">Maharashtra</option>
+  <option value="Gujarat">Gujarat</option>
+</select></td>
+</tr>
+
+<tr>
+<td class="columns">Zip Code </td>
+<td class="one"><i class="fa fa-home"></i> <input class="textbox" type="phone" name="zipcode" placeholder="Zip Code" size="30" pattern="[0-9]{6,8}" title="Enter valid code between 6-8 digits"></td>
+</tr>
+
+<tr>
+<td class="columns">Website or domain name </td>
+<td class="one"><i class="fa fa-globe"></i> <input class="textbox" type="url" name="websiteordomain" placeholder="Website or domain name" size="30" ></td>
+</tr>
+
+<tr>
+<td class="columns">Do you have hosting?</td>
+<td><input type="radio" name="rad"> Yes</td>
+</tr>
+<tr>
+<td></td>
+<td><input type="radio" name="rad"> No</td>
+</tr>
+
+<tr>
+<td class="columns">Project Description </td>
+<td class="one"><i class="fa fa-pencil"></i> <textarea class="textbox" rows="3" cols="32" name="description" placeholder="Project Description"></textarea></td>
+</tr>
+<tr>
+
+</tr>
+<tr>
+<td></td>
+<td><button>Send</button><td>
+</tr>
+</table>
+</form>
+</div>
+
+</body>
+</html>
