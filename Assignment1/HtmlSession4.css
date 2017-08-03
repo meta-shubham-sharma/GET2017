@@ -1,0 +1,35 @@
+h1{
+	padding:30px;
+}
+button{
+	background-color:#f0aa49;
+	color:white;
+	height:40px;
+	width:100px;
+	border:1px solid;
+	border-radius:5px;
+	cursor:pointer;
+}
+body{
+	background-color:#ececec;
+}
+.columns{
+	text-align:right;
+}
+.textbox{
+	padding:10px;
+	border:none;
+}
+i{
+	color:#aaa;
+	padding:5px;
+}
+.one{
+	background:white;
+	border:1px; 
+	border-radius:2px;
+}
+select{
+	border:none;
+}
+
