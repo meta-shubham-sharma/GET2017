@@ -1,12 +1,11 @@
 <html>
 <head>
-	<style>
-	input,select,textarea	{
-	outline-color:green;
-	}
+	<title>
+	Assignment2
+	</title> 
+	<style> 
+		sup{ color:red; }
 	</style>
-	<title>Assignment2
-	</title>
 	<script src="MyScript.js">
 	</script>
 </head>
@@ -33,21 +32,21 @@
 
 
 <table align="center" cellspacing="20px">
-<form name="form" > 
+<form name="form" onsubmit="return validateForm()"> 
 <tr>
-	<td >Name : </td> 
-	<td ><input onblur="checkForm()" onchange="return validateName()" placeholder="Name" type="text" name="name" ></td>
+	<td >Name<sup>*</sup> : </td> 
+	<td ><input  onchange="return validateName()" placeholder="Name" type="text" name="name" ></td>
 </tr>
 
 <tr>
-	<td >Email : </td>
-	<td ><input type="text" onblur="checkForm()" onchange="return validateEmail()" placeholder="Email" name="email" ></td>
+	<td >Email<sup>*</sup> : </td>
+	<td ><input type="text"  onchange="return validateEmail()" placeholder="Email" name="email" ></td>
 </tr>
 
 <tr> 
-	<td >City : </td>
-	<td ><select name="city" onchange ="return validateCity()" onclick="checkForm()" > 
-		<option value="" disabled selected >None</option>
+	<td >City<sup>*</sup> : </td>
+	<td ><select name="city" onchange ="return validateCity()" > 
+		<option value="" disabled selected ></option>
 		<option value="Jaipur">Jaipur</option>
 		<option value="Udaipur">Udaipur</option>
 		<option value="Bhilwara">Bhilwara</option>
@@ -58,26 +57,26 @@
 </tr>
 <tr>
 <td></td>
-<td><input id="val" type="text" name="cityname" readonly></td>	
+<td><input id="val" type="text" name="cityname" readonly hidden></td>	
 </tr>
 
 <tr>
-	<td >Organization name : </td>
-	<td ><input type="text" onblur="checkForm()" onchange="return validateOrganization()" placeholder="Organization" name="organization" ></td>
+	<td >Organization name<sup>*</sup> : </td>
+	<td ><input type="text" onchange="return validateOrganization()" placeholder="Organization" name="organization" ></td>
 </tr>
 
 <tr>
-	<td >Contact Number : </td>
-	<td ><input type="text" onblur="checkForm()" onchange="return validateNumber()" placeholder="Contact Number" name="num" ></td>
+	<td >Contact Number<sup>*</sup> : </td>
+	<td ><input type="text" onchange="return validateNumber()" placeholder="Contact Number" name="num" ></td>
 </tr>
 
 <tr>
-	<td >Message : </td>
-	<td ><textarea name="Message" onblur="checkForm()" onchange="return validateMessage()"  cols="22"  placeholder="Message" ></textarea> </td>
+	<td >Message<sup>*</sup> : </td>
+	<td ><textarea name="msg" onchange="return validateMessage()"  cols="22"  placeholder="Message" ></textarea> </td>
 </tr>
 
 <tr>
-	<td><input type="submit" name="submit" value="Submit" disabled></td>
+	<td><input type="submit" name="submit" value="Submit"></td>
 </tr>
 </form>
 </table>
