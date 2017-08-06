@@ -1,0 +1,91 @@
+<html>
+<head>
+	<title>
+	Assignment2
+	</title> 
+	<style> 
+		sup{ color:red; }
+	</style>
+	<script src="MyScript.js">
+	</script>
+</head>
+<body>
+
+<table width=100%>
+	<tr>
+		<td><img src="imageLogo.png" height=60%> </img></td>
+		<td align="right"><a href="#" id="home" onClick="toHome()">Home</a>
+		<a href="#">About</a>
+		<a href="#">Product</a>
+		<a href="#">Gallery</a>
+		<a href="#" id="contact" onClick="toContact()" >Contact</a></td>
+	</tr>
+</table>
+
+<hr>
+
+<table width=100%>
+	<tr>
+		<td align="center"><img src="contact.png" width=80% height=200% ></img> </td>
+	</tr>
+</table>
+
+
+<table align="center" cellspacing="20px">
+<form name="form" onsubmit="return validateForm()"> 
+<tr>
+	<td >Name<sup>*</sup> : </td> 
+	<td ><input  onchange="return validateName()" placeholder="Name" type="text" name="name" ></td>
+</tr>
+
+<tr>
+	<td >Email<sup>*</sup> : </td>
+	<td ><input type="text"  onchange="return validateEmail()" placeholder="Email" name="email" ></td>
+</tr>
+
+<tr> 
+	<td >City<sup>*</sup> : </td>
+	<td ><select name="city" onchange ="return validateCity()" > 
+		<option value="" disabled selected ></option>
+		<option value="Jaipur">Jaipur</option>
+		<option value="Udaipur">Udaipur</option>
+		<option value="Bhilwara">Bhilwara</option>
+		<option value="Ajmer">Ajmer</option>
+		<option value="Alwar">Alwar</option>
+		</select>
+	</td>	
+</tr>
+<tr>
+<td></td>
+<td><input id="val" type="text" name="cityname" readonly hidden></td>	
+</tr>
+
+<tr>
+	<td >Organization name<sup>*</sup> : </td>
+	<td ><input type="text" onchange="return validateOrganization()" placeholder="Organization" name="organization" ></td>
+</tr>
+
+<tr>
+	<td >Contact Number<sup>*</sup> : </td>
+	<td ><input type="text" onchange="return validateNumber()" placeholder="Contact Number" name="num" ></td>
+</tr>
+
+<tr>
+	<td >Message<sup>*</sup> : </td>
+	<td ><textarea name="msg" onchange="return validateMessage()"  cols="22"  placeholder="Message" ></textarea> </td>
+</tr>
+
+<tr>
+	<td><input type="submit" name="submit" value="Submit"></td>
+</tr>
+</form>
+</table>
+<hr>
+
+<table align="center">
+	<tr>
+		<td>Copyright 2017-18 | All Rights Reserved | Metacube training </td>
+	</tr>
+</table>
+</body>
+</html>
