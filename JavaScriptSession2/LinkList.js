@@ -1,5 +1,3 @@
-//var data,next=null,head=null,temp;
-
 var singlylist = new SinglyLinkList();
 
 function Node(){
@@ -32,24 +30,33 @@ this.addToList= function(){
 this.deleteFromList = function(){
 	this.temp=this.head;
 	pre=this.head;
+	var flag=true;
 	var val = document.getElementById("delete").value;
 	document.getElementById("delete").value="";
 	while(this.temp!= null){
 		if(this.head.data == val){
 			this.head = this.head.next;
-			console.log("value deleted");
+			flag=false;
 			break;
 		}
 		else
 		{
 			if(this.temp.data == val){
 			pre.next = this.temp.next;
+			flag=false;
 			break;
 			}
 			var pre=this.temp;
 			this.temp=this.temp.next;
 		}
 	}
+	if(flag){
+		document.getElementById("spanDelete").innerHTML = "Element is not present in the list";
+	}
+	else{
+		document.getElementById("spanDelete").innerHTML = "Element is deleted successfully from the list";
+	}
+	
 }
 
 this.printList=function(){
