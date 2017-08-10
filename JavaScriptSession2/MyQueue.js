@@ -7,22 +7,30 @@ var Node = function(data){
 
 function Queues(){
 	this.first = null;
-
+    var pattern = /^[A-Za-z0-9]+$/;
+	
 Queues.prototype.getQueue = function(){
 	document.getElementById("queue").innerHTML = "";
 	temp=this.first;
-	while(temp!=null){
-			document.getElementById("queue").innerHTML += temp.data + " "; 
-			temp=temp.next;
+	if(!temp){
+		document.getElementById("queue").innerHTML = "Queue is empty";
+	}
+	else{
+		while(temp!=null){
+				document.getElementById("queue").innerHTML += temp.data + " "; 
+				temp=temp.next;
+		}
 	}
 }
 
 Queues.prototype.enqueue = function(){
 	var input = document.getElementById("enq").value;
+	if(input.match(pattern)){
 	var node= new Node(input);
 	document.getElementById("enq").value="";
 	if(!this.first){
 		this.first=node;
+		document.getElementById("spanEnqueue").innerHTML = "Element added to queue";
 	}
 	else{
 		var temp=this.first; 
@@ -30,6 +38,11 @@ Queues.prototype.enqueue = function(){
 			temp=temp.next;
 		}
 		temp.next=node;
+		document.getElementById("spanEnqueue").innerHTML = "Element added to queue";
+	}
+	}
+	else{
+		document.getElementById("spanEnqueue").innerHTML = "Enter valid text to enqueue";
 	}
 }
 
