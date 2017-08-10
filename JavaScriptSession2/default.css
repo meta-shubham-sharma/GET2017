@@ -1,0 +1,63 @@
+*{
+	margin : 0;
+	padding : 0;
+	font-family : Arial;
+}
+
+.left{
+	float : left;
+}
+
+.right{
+	float : right;
+}
+
+.clear{
+	clear : both;
+}
+
+a,a:link,a:active,a:visited{
+	text-decoration: none;
+	color : black;
+}
+
+li{
+	list-style: none;
+}
+
+
+
+
+/************* Header *************/
+
+#header{
+	background : black;
+	color : white;
+	padding : 20px 40px;
+}
+
+#header .logo{
+	font-weight: bold;
+	font-size: 16px;
+	padding : 15px 0;
+	display: inline-block;
+}
+
+#header .right nav ul li a{
+	color : teal;
+	padding : 15px 10px;
+	display: inline-block;
+	transition: 0.4s;
+	
+}
+
+#header .right nav ul li{
+	display: inline-block;
+}
+
+#header .right nav ul li:hover a{
+	color : white;
+}
+
+/************* Header End *************/
+
