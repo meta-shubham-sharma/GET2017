@@ -1,20 +1,56 @@
-var arr= [];
-var rear=-1;
-var front=0;
-function getQueue(){
+var obj = new Queues();
+
+var Node = function(data){
+	this.data=data;
+	this.next=null;
+}
+
+function Queues(){
+	this.first = null;
+
+Queues.prototype.getQueue = function(){
 	document.getElementById("queue").innerHTML = "";
-		for(var index = front;index <= rear;index++){
-			document.getElementById("queue").innerHTML += arr[index] + " "; 
-		}
+	temp=this.first;
+	while(temp!=null){
+			document.getElementById("queue").innerHTML += temp.data + " "; 
+			temp=temp.next;
+	}
 }
 
-function enqueue(){
+Queues.prototype.enqueue = function(){
 	var input = document.getElementById("enq").value;
+	var node= new Node(input);
 	document.getElementById("enq").value="";
-	arr[++rear]=input;
-	console.log(arr[rear]);
+	if(!this.first){
+		this.first=node;
+	}
+	else{
+		var temp=this.first; 
+		while(temp.next){
+			temp=temp.next;
+		}
+		temp.next=node;
+	}
 }
 
-function dequeue(){
-	document.getElementById("spanDeque").innerHTML = arr[front++];
+Queues.prototype.dequeue = function(){
+	if(this.first){
+		document.getElementById("spanDeque").innerHTML = this.first.data;
+		this.first=this.first.next;
+	}
+	else{
+		document.getElementById("spanDeque").innerHTML = "There are no elements in the queue";	
+	}
+}
+
+}
+function enqueueVal(){
+	obj.enqueue();
+}
+
+function dequeueVal(){
+	obj.dequeue();
+}
+function getQueueVal(){
+	obj.getQueue();
 }
