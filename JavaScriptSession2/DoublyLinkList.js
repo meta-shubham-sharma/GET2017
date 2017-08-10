@@ -33,12 +33,13 @@ function Node(){
 	this.deleteFromList = function (){
 	var val = document.getElementById("delete").value;
 	document.getElementById("delete").value="";
+	var flag = true;
 	this.temp=this.head;
 	while(this.temp!= null){
 		if(this.head.data == val){
 			this.head = this.head.next;
 			this.head.prev=null;
-			console.log("value deleted");
+			flag = false;
 			break;
 		}
 		else
@@ -47,11 +48,17 @@ function Node(){
 				this.temp.prev.next=this.temp.next;
 				if(this.temp.next!=null)
 				this.temp.next.prev=this.temp.prev;
-				console.log("value deleted");
+				flag = false;
 				break;
 			}
 			this.temp=this.temp.next;
 		}
+	}
+	if(flag){
+		document.getElementById("spanDelete").innerHTML = "Element is not present in the list";
+	}
+	else{
+		document.getElementById("spanDelete").innerHTML = "Element is deleted from the list";
 	}
 }
 
