@@ -1,11 +1,17 @@
-var sum=function(a){
-	if(arguments.length == 2){
-		document.getElementById("sum").innerHTML = arguments[0] + arguments[1];
-	}
-	else if(arguments.length ==1)
-	{return function(b){
-		document.getElementById("sum2").innerHTML = a+b;
-		}
-	}
-}
 
+function sum(x) {
+	if(arguments.length > 1){
+		var sum = 0;
+		for(var index = 0;index<arguments.length;index++)
+			sum=sum+arguments[index];
+		document.getElementById("sum").innerHTML = sum;
+	}
+    return function(y) {
+        if (typeof y !== 'undefined') {
+            x = x + y;
+            return arguments.callee;
+        } else {
+            document.getElementById("sum2").innerHTML = x;
+        }
+    }
+}
