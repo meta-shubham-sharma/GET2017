@@ -9,6 +9,7 @@ function Node(data){
  function SinglyLinkList(){
 	 this.head=null;
 	 this.next=null;
+	 this.size=0;
 	 var temp,data;
 
 this.addToList= function(){
@@ -18,6 +19,7 @@ this.addToList= function(){
 		var node = new Node(data);
 		if(this.head == null){
 		this.head=node;
+		this.size+=1;
 		document.getElementById("spanAdd").innerHTML = "Element added successfully";
 		}
 		else
@@ -28,6 +30,7 @@ this.addToList= function(){
 				this.temp=this.temp.next;
 			}
 			this.temp.next=node; 
+			this.size+=1;
 			document.getElementById("spanAdd").innerHTML = "Element added successfully";
 		}
 	}	
@@ -47,6 +50,7 @@ this.deleteFromList = function(){
 		while(this.temp!= null){
 			if(this.head.data == val){
 				this.head = this.head.next;
+				this.size-=1;
 				flag=false;
 				break;
 			}
@@ -54,6 +58,7 @@ this.deleteFromList = function(){
 			{
 				if(this.temp.data == val){
 				pre.next = this.temp.next;
+				this.size-=1;
 				flag=false;
 				break;
 				}
@@ -112,8 +117,72 @@ this.searchFromList = function(){
 	}
 	}
 	else{
-		document.getElementById("spanSearch").innerHTML = "Element valid text to search";
+		document.getElementById("spanSearch").innerHTML = "Enter valid text to search";
 	}
+}
+
+this.searchPosFromList = function(){
+	this.temp=this.head;
+	var pattern = /^[0-9]+$/;
+	var val = document.getElementById("searchPos").value;
+	document.getElementById("searchPos").value="";
+	var count=1,flag=true;
+		if(val.match(pattern)){
+			while(count<=this.size){
+				if(count==val){
+					document.getElementById("spanSearchPos").innerHTML = this.temp.data;
+					flag=false;
+					break;
+				}
+				count++;
+				this.temp=this.temp.next;
+			}
+			if(flag){
+					document.getElementById("spanSearchPos").innerHTML = "No element exist at this position";
+			}
+		}
+		else{
+			document.getElementById("spanSearchPos").innerHTML = "Enter valid text to search";
+		}
+}
+
+this.deletePosFromList = function(){
+	this.temp=this.head;
+	var pattern = /^[0-9]+$/;
+	var val = document.getElementById("deletePos").value;
+	document.getElementById("deletePos").value="";
+	var count=1,flag=true;
+		if(val.match(pattern)){
+			while(count<=this.size){
+				if(count==val){
+					document.getElementById("spanDeletePos").innerHTML = "Element is deleted from the list";
+					if(val ==1){
+						this.head=this.head.next;
+					}
+					else{
+						for(var index = 1;index<val-1;index++){
+							this.temp=this.temp.next;
+						}
+						if(!this.temp.next.next){
+							this.temp.next = null;
+						}
+						else{
+							this.temp.next = this.temp.next.next;
+						}
+					}
+					this.size-=1;
+					flag=false;
+					break;
+				}
+				count++;
+			}
+			if(flag){
+					document.getElementById("spanDeletePos").innerHTML = "No element exist at this position";
+			}
+		}
+		else{
+			document.getElementById("spanDeletePos").innerHTML = "Enter valid text to search";
+		}
 }
 }
 
@@ -131,4 +200,12 @@ function printVal(){
 
 function searchVal(){
 	singlylist.searchFromList();
+}
+
+function searchPos(){
+	singlylist.searchPosFromList();
+}
+
+function deletePos(){
+	singlylist.deletePosFromList();
 }
