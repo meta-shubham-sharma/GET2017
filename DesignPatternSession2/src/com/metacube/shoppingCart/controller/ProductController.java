@@ -1,5 +1,6 @@
 package com.metacube.shoppingCart.controller;
 
+import com.metacube.shoppingCart.Dao.InMemoryProductDao;
 import com.metacube.shoppingCart.Enums.Status;
 import com.metacube.shoppingCart.Facade.ProductFacade;
 import com.metacube.shoppingCart.Model.Product;
@@ -21,10 +22,19 @@ public class ProductController {
 	 * @return the view object
 	 */
 	public void getViewObject(Product input) {
-		if (pfacade.checkProductCode(input)) {
+		String code = input.getCode();
+		if (pfacade.checkProductCode(code)) {
 			pfacade.addToCart(input);
 		} else {
 			DisplayOutput.checkStatus(Status.NOTAVAILABLE);
+		}
+	}
+	
+	public void removeItem(String code){
+		if (pfacade.checkProductCode(code)) {
+			InMemoryProductDao.removeFromCart(code);
+		} else {
+			DisplayOutput.checkStatus(Status.NOTSELECTED);
 		}
 	}
 }
