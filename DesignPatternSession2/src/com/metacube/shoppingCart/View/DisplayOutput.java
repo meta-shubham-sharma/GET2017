@@ -8,6 +8,7 @@ import com.metacube.shoppingCart.Dao.BaseDao;
 import com.metacube.shoppingCart.Dao.InMemoryProductDao;
 import com.metacube.shoppingCart.Enums.Status;
 import com.metacube.shoppingCart.Model.ShoppingCart;
+import com.metacube.shoppingCart.controller.ProductController;
 
 
 /**
@@ -64,7 +65,8 @@ public class DisplayOutput {
 						System.out
 								.println("Enter product code you want to remove");
 						String code = scan.next();
-						InMemoryProductDao.removeFromCart(code);
+						ProductController pc = new ProductController();
+						pc.removeItem(code);
 						break;
 					case 2:
 						DisplayInput.getInputFromUser();
