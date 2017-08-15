@@ -1,6 +1,6 @@
 package com.metacube.shoppingCart.Dao;
 
-import java.util.List;
+import java.util.HashMap;
 
 import com.metacube.shoppingCart.Model.Product;
 
@@ -14,5 +14,5 @@ public interface ProductDao extends BaseDao{
 		 *
 		 * @return the all products
 		 */
-		public List<Product> getAllProducts();
+		public HashMap<String, Product> getAllProducts();
 }

@@ -4,15 +4,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import com.metacube.shoppingCart.Enums.Status;
 import com.metacube.shoppingCart.Model.Entity;
 import com.metacube.shoppingCart.Model.Product;
 import com.metacube.shoppingCart.Model.ShoppingCart;
-import com.metacube.shoppingCart.View.DisplayOutput;
 
 public class InMemoryProductDao implements ProductDao, BaseDao {
 
-	public static HashMap<String, Product> productMap = new HashMap<String, Product>();
+	static HashMap<String, Product> productMap = new HashMap<String, Product>();
 	static List<ShoppingCart> cartItems = new ArrayList<ShoppingCart>();
 
 	@Override
@@ -39,24 +37,17 @@ public class InMemoryProductDao implements ProductDao, BaseDao {
 	}
 
 	@Override
-	public List<Product> getAllProducts() {
+	public HashMap<String, Product> getAllProducts() {
 		// TODO Auto-generated method stub
-		return null;
+		return productMap;
 	}
 
 	public static void removeFromCart(String code) {
-		boolean flag = true;
 		for (ShoppingCart item : cartItems) {
 			if (item.getCode().equals(code)) {
 				cartItems.remove(item);
-				flag = false;
-				System.out
-						.println("Product is successfully removed from the cart !!");
 				break;
 			}
-		}
-		if (flag) {
-			DisplayOutput.checkStatus(Status.NOTSELECTED);
 		}
 	}
 
@@ -64,7 +55,8 @@ public class InMemoryProductDao implements ProductDao, BaseDao {
 		cartItems.add(cart);
 	}
 
-	public static List<ShoppingCart> getCartItems() {
+	public List<ShoppingCart> getCartItems() {
 		return cartItems;
 	}
+
 }
