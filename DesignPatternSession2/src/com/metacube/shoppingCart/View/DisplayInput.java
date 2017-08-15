@@ -11,25 +11,6 @@ import com.metacube.shoppingCart.controller.ProductController;
  */
 public class DisplayInput {
 
-	/** The code. */
-	public String code;
-
-	/** The quantity. */
-	public int quantity;
-
-	/**
-	 * Instantiates a new display input.
-	 *
-	 * @param code
-	 *            the code
-	 * @param quantity
-	 *            the quantity
-	 */
-	public DisplayInput(String code, int quantity) {
-		this.code = code;
-		this.quantity = quantity;
-	}
-
 	/**
 	 * Gets the input from user.
 	 *
