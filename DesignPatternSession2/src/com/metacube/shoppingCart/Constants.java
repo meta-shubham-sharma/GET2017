@@ -11,6 +11,6 @@ public class Constants {
 	/** The Constant PRODUCTLOC. */
 	public final static String PRODUCTLOC = "products.txt";
 	
-	/** The Constant FILELOC. */
+	/** The Constant FILELOC2. */
 	public final static String FILELOC2 = "file2.txt";
 }
