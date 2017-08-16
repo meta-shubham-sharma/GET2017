@@ -10,4 +10,7 @@ public class Constants {
 
 	/** The Constant PRODUCTLOC. */
 	public final static String PRODUCTLOC = "products.txt";
+	
+	/** The Constant FILELOC. */
+	public final static String FILELOC2 = "file2.txt";
 }
