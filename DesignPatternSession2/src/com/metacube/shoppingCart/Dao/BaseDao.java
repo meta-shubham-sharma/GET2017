@@ -1,6 +1,7 @@
 package com.metacube.shoppingCart.Dao;
 
 import com.metacube.shoppingCart.Model.Entity;
+import com.metacube.shoppingCart.Model.Product;
 
 /**
  * The Interface BaseDao.
@@ -21,7 +22,7 @@ public interface BaseDao {
 	 * @param entity
 	 *            the entity
 	 */
-	public void update(Entity entity);
+	public void update(Entity entity,Product prod);
 
 	/**
 	 * Delete.
@@ -29,7 +30,7 @@ public interface BaseDao {
 	 * @param entity
 	 *            the entity
 	 */
-	public void delete(Entity entity);
+	public void delete(String code);
 
 	/**
 	 * Retreive.
