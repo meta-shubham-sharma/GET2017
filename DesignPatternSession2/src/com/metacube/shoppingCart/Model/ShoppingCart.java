@@ -1,6 +1,6 @@
 package com.metacube.shoppingCart.Model;
 
-public class ShoppingCart {
+public class ShoppingCart extends Entity{
 
 	String code;
 	int quantity;
