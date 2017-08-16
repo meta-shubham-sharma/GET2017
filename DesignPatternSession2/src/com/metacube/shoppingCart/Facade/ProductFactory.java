@@ -2,6 +2,7 @@ package com.metacube.shoppingCart.Facade;
 
 import com.metacube.shoppingCart.Dao.BaseDao;
 import com.metacube.shoppingCart.Dao.InMemoryProductDao;
+import com.metacube.shoppingCart.Dao.InMemoryShoppingCartDao;
 
 /**
  * A factory for creating Product objects.
@@ -18,6 +19,8 @@ public class ProductFactory {
 		switch(str){
 		case "InMemoryProductDao":
 			return new InMemoryProductDao();
+		case "InMemoryShoppingCartDao":
+			return new InMemoryShoppingCartDao();
 		default:
 			return null;
 		}
