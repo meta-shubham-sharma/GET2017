@@ -3,9 +3,9 @@ package com.metacube.shoppingCart.controller;
 import java.util.HashMap;
 import java.util.List;
 
-import com.metacube.shoppingCart.Dao.InMemoryProductDao;
 import com.metacube.shoppingCart.Enums.Status;
 import com.metacube.shoppingCart.Facade.ProductFacade;
+import com.metacube.shoppingCart.Facade.ShoppingCartFacade;
 import com.metacube.shoppingCart.Model.Product;
 import com.metacube.shoppingCart.Model.ShoppingCart;
 import com.metacube.shoppingCart.View.DisplayOutput;
@@ -15,9 +15,8 @@ import com.metacube.shoppingCart.View.DisplayOutput;
  */
 public class ProductController {
 
-	/** The pfacade. */
 	ProductFacade pfacade = new ProductFacade();
-
+	ShoppingCartFacade sfacade = new ShoppingCartFacade();
 	/**
 	 * Gets the view object.
 	 *
@@ -28,7 +27,7 @@ public class ProductController {
 	public void getViewObject(Product input) {
 		String code = input.getCode();
 		if (pfacade.checkProductCode(code)) {
-			pfacade.addToCart(input);
+			sfacade.addToCart(input);
 			DisplayOutput.checkStatus(Status.ADDED);
 		} else {
 			DisplayOutput.checkStatus(Status.NOTAVAILABLE);
@@ -36,8 +35,8 @@ public class ProductController {
 	}
 
 	public void removeItem(String code) {
-		if (pfacade.checkProductCodeFromCart(code)) {
-			InMemoryProductDao.removeFromCart(code);
+		if (sfacade.checkProductCodeFromCart(code)) {
+			sfacade.removeFromcart(code);
 			DisplayOutput.checkStatus(Status.REMOVED);
 		} else {
 			DisplayOutput.checkStatus(Status.NOTSELECTED);
@@ -45,7 +44,7 @@ public class ProductController {
 	}
 
 	public List<ShoppingCart> getCart() {
-		return pfacade.getCart();
+		return sfacade.getCart();
 	}
 
 	public HashMap<String, Product> getProducts() {
