@@ -17,65 +17,91 @@ import org.json.simple.parser.JSONParser;
 import com.metacube.model.Employee;
 import com.sun.org.apache.xerces.internal.impl.xpath.regex.ParseException;
 
-
+/**
+ * @author shubham
+ *
+ */
 public class EmployeeDao {
 	List<Employee> employeeList = new ArrayList<Employee>();
-	
-	public void writeToFile(List<Employee> employeeList){
-		try(
-			FileWriter file = new FileWriter("C://Users/User21/workspace/EmployeeManagement/details.JSON",true);	
-			BufferedWriter bw = new BufferedWriter(file);
-			PrintWriter out = new PrintWriter(bw)){
-			ObjectMapper mapper = new ObjectMapper();
-			for(Employee temp : employeeList){
-			String jsonInString = mapper.writeValueAsString(temp);	
-			out.println(jsonInString);
-		}
-		
-		}catch(Exception e){
-			
-		}
-	}
-	
-	public void writeAfterDelete(List<JSONObject> employeeList){
-		try(
-				FileWriter file = new FileWriter("C://Users/User21/workspace/EmployeeManagement/details.JSON");	
+
+	/**
+	 * write to json file
+	 */
+	public void writeToFile(List<Employee> employeeList) {
+		try (FileWriter file = new FileWriter(
+				"C://Users/User21/workspace/EmployeeManagement/details.JSON",
+				true);
 				BufferedWriter bw = new BufferedWriter(file);
-				PrintWriter out = new PrintWriter(bw)){
-				ObjectMapper mapper = new ObjectMapper();
-				for(JSONObject temp : employeeList){
-				String jsonInString = mapper.writeValueAsString(temp);	
+				PrintWriter out = new PrintWriter(bw)) {
+			ObjectMapper mapper = new ObjectMapper();
+			for (Employee temp : employeeList) {
+				String jsonInString = mapper.writeValueAsString(temp);
 				out.println(jsonInString);
 			}
-			}catch(Exception e){
-				
-			}
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
-	
-	public List<JSONObject> readFromFile() throws org.json.simple.parser.ParseException{
+
+	/**
+	 * update the complete json file
+	 * 
+	 * @param employeeList
+	 */
+	public void writeAfterDelete(List<JSONObject> employeeList) {
+		try (FileWriter file = new FileWriter(
+				"C://Users/User21/workspace/EmployeeManagement/details.JSON");
+				BufferedWriter bw = new BufferedWriter(file);
+				PrintWriter out = new PrintWriter(bw)) {
+			ObjectMapper mapper = new ObjectMapper();
+			for (JSONObject temp : employeeList) {
+				String jsonInString = mapper.writeValueAsString(temp);
+				out.println(jsonInString);
+			}
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
+	/**
+	 * 
+	 * @return list of json objects
+	 * @throws org.json.simple.parser.ParseException
+	 */
+	public List<JSONObject> readFromFile()
+			throws org.json.simple.parser.ParseException {
 		JSONParser parser = new JSONParser();
 		JSONObject obj = null;
 		List<JSONObject> list = new ArrayList<JSONObject>();
 		try {
-		List<String> l = new ArrayList<String>();
-		l = Files.readAllLines(Paths.get("C://Users/User21/workspace/EmployeeManagement/details.JSON"));
-		for (String s : l) {
-		obj = (JSONObject) parser.parse(s);
-		list.add((JSONObject) obj);
+			List<String> l = new ArrayList<String>();
+			l = Files
+					.readAllLines(Paths
+							.get("C://Users/User21/workspace/EmployeeManagement/details.JSON"));
+			for (String s : l) {
+				obj = (JSONObject) parser.parse(s);
+				list.add((JSONObject) obj);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (ParseException e) {
+			e.printStackTrace();
 		}
-		}catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
 		return list;
 	}
-	
-	public List<Employee> getList() throws org.json.simple.parser.ParseException{
+
+	/**
+	 * 
+	 * @return list of employees
+	 * @throws org.json.simple.parser.ParseException
+	 */
+	public List<Employee> getList()
+			throws org.json.simple.parser.ParseException {
 		readFromFile();
 		return employeeList;
 	}
-	
+
 }
