@@ -20,10 +20,20 @@ import org.json.simple.parser.ParseException;
 import com.metacube.dao.EmployeeDao;
 import com.metacube.model.Employee;
 
+/**
+ * @author shubham
+ *
+ */
 @Path("/employeeService")
 public class EmployeeService {
 
 	EmployeeDao edao = new EmployeeDao();
+	
+	/**
+	 * 
+	 * @return list of employees	
+	 * @throws ParseException
+	 */
 	@GET
 	@Path("/employees")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -36,7 +46,16 @@ public class EmployeeService {
 		return ls.toString();
 	}
 	
-	
+	/**
+	 * 
+	 * @param id
+	 * @param name
+	 * @param age
+	 * @param servletResponse
+	 * @return string
+	 * @throws IOException
+	 * @throws ParseException
+	 */
 	@POST
 	@Path("/employees/createEmployee/{id},{name},{age}")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -54,6 +73,12 @@ public class EmployeeService {
 		return "Employee is successfully created";
 	}
 	
+	/**
+	 * 
+	 * @param id
+	 * @return string
+	 * @throws ParseException
+	 */
 	@GET
 	@Path("/employees/getById/{id}")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -67,6 +92,12 @@ public class EmployeeService {
 		return null;
 	}
 	
+	/**
+	 * 
+	 * @param name
+	 * @return string 
+	 * @throws ParseException
+	 */
 	@GET
 	@Path("/employees/getByName/{name}")
 	@Produces(MediaType.TEXT_PLAIN)
@@ -81,6 +112,12 @@ public class EmployeeService {
 		return ls.toString();
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return string
+	 * @throws ParseException
+	 */
 	@DELETE
 	@Path("/employees/deleteById/{id}")
 	@Produces(MediaType.TEXT_PLAIN)
