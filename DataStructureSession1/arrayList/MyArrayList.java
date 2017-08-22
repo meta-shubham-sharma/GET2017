@@ -8,7 +8,8 @@ package com.metacube.arrayList;
 public class MyArrayList<E> {
 
 	Object[] array = null;
-	static int MAX = 5;
+	int MAX = 3,newSize = 3;
+	
 	
 	public MyArrayList() {
 		array = new Object[MAX];
@@ -18,8 +19,10 @@ public class MyArrayList<E> {
 	 * @param element
 	 */
 	public void addElement(E element) {
-		if (getSize() == MAX) {
+		
+		if (getSize() == newSize) {
 			this.array = resize(this.array);
+			newSize += MAX; 
 		} 
 			int index = getSize();
 			array[index] = element;
@@ -32,12 +35,13 @@ public class MyArrayList<E> {
 	 */
 	public boolean setElement(int index, E element) {
 		
-		if(index > getSize()){
+		if(index > getSize() || index<0 ){
 			return false;
 		}
 		 else {
 			if (getSize() == MAX) {
 				array = resize(array);
+				newSize += MAX;
 			}
 			for (int jindex = getSize() - 1; jindex >= index; jindex--) {
 				array[jindex+1] = array[jindex];
@@ -90,7 +94,7 @@ public class MyArrayList<E> {
 	 * @return boolean
 	 */
 	public boolean removeElementFromPosition(int position) {
-		if(position >= getSize()){
+		if(position >= getSize() || position<0 ){
 			return false;
 		}
 		for (int index = position; index < getSize()-1; index++) {
@@ -123,12 +127,12 @@ public class MyArrayList<E> {
 	}
 	
 	public void reverseArrayList(){
-		Object[] newArray = new Object[array.length];
-		int jindex = 0;
-		for(int index = getSize()-1 ; index >=0  ; index--){
-			newArray[jindex++] = array[index];
+		int size = getSize();
+		for(int index = 0 ; index < size/2  ; index++){
+			Object temp = array[index];
+			array[index] = array[size-index-1];
+			 array[size-index-1] = temp;
 		}
-			this.array = newArray;
 	}
 	/**
 	 * 
