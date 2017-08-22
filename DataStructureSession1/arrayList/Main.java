@@ -45,8 +45,7 @@ public class Main {
 				System.out.println("Element is added to the ArrayList");
 			}
 			else{
-				System.out.println("Element can not be added to location "+location);
-				System.out.println("Location is greater than size of the ArrayList !!");
+				System.out.println("Invalid Location !!");
 			}
 			break;
 		case 3:
@@ -85,12 +84,36 @@ public class Main {
 			break;
 		case 7:
 			arrayList.reverseArrayList();
+			Object result[] = arrayList.printArrayList();
+			if(result[0]==null){
+				System.out.println("ArrayList is empty");
+			}
+			for(int index =0;index< result.length ;index++){
+				if(result[index] != null){
+				System.out.print(result[index] + " ");
+				}
+				else{
+					break;
+				}
+			}
 			break;
 		case 8:
 			arrayList.sortArrayList();
+			result= arrayList.printArrayList();
+			if(result[0]==null){
+				System.out.println("ArrayList is empty");
+			}
+			for(int index =0;index< result.length ;index++){
+				if(result[index] != null){
+				System.out.print(result[index] + " ");
+				}
+				else{
+					break;
+				}
+			}
 			break;
 		case 9:
-			Object result[] = arrayList.printArrayList();
+			result= arrayList.printArrayList();
 			if(result[0]==null){
 				System.out.println("ArrayList is empty");
 			}
