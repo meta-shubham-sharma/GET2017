@@ -25,14 +25,17 @@ public class SinglyLinkedList<E> {
 		} else {
 			while (temp != null) {
 				if (location == index) {
-					newNode.next = temp.next();
-					prev.next = newNode;
-					size++;
-					return true;
+					break;
 				}
 				index++;
 				prev = temp;
 				temp = temp.next();
+			}
+			if (location == index){
+			newNode.next = temp.next();
+			temp.next = newNode;
+			size++;
+			return true;
 			}
 		}
 		return false;
