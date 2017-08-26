@@ -24,8 +24,8 @@ public class MyHashTable<E, V> {
 			roomBucket[MyKey] = room;
 			Guest guest = (Guest) ((MyHashNode<E, V>) roomBucket[MyKey])
 					.getValue();
-			guest.setRoom(MyKey+1);
-			
+			guest.setRoom(MyKey + 1);
+
 		} else {
 			int index = 0;
 			for (index = 0; index < roomBucket.length; index++) {
@@ -36,9 +36,13 @@ public class MyHashTable<E, V> {
 					break;
 				}
 			}
-			Guest guest = (Guest) ((MyHashNode<E, V>) roomBucket[index])
-					.getValue();
-			guest.setRoom(index+1);
+			if (index < roomBucket.length) {
+				Guest guest = (Guest) ((MyHashNode<E, V>) roomBucket[index])
+						.getValue();
+				guest.setRoom(index + 1);
+			} else {
+				System.out.println("No rooms available !!");
+			}
 		}
 	}
 
@@ -50,13 +54,15 @@ public class MyHashTable<E, V> {
 	@SuppressWarnings("unchecked")
 	public V getValue(int age, String name) {
 		for (int index = 0; index < roomBucket.length; index++) {
-			Guest guest = (Guest) ((MyHashNode<E, V>) roomBucket[index])
-					.getValue();
-			if (guest.getName().equals(name) && guest.getAge() == age) {
-				return ((MyHashNode<E, V>) roomBucket[index]).getValue();
+			if (roomBucket[index] != null) {
+				Guest guest = (Guest) ((MyHashNode<E, V>) roomBucket[index])
+						.getValue();
+				if (guest.getName().equals(name) && guest.getAge() == age) {
+					return ((MyHashNode<E, V>) roomBucket[index]).getValue();
+				}
 			}
 		}
-		return (V) "none";
+		return null;
 	}
 
 	@SuppressWarnings("unchecked")
