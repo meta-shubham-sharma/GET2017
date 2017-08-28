@@ -12,12 +12,12 @@ public class MyLinkedList {
 		index = 0;
 	}
 
-	public void add(int item1, int item2) {
+	public void add(int item1, int index) {
 		if (list.isEmpty()) {
 			list.add(item1);
 		} else if (item1 < list.getFirst()) {
 			list.addFirst(item1);
-		} else if (item1 < item2) {
+		} else if ( item1 < list.get(index) ) {
 			list.add(index, item1);
 		} 
 		else { 
@@ -25,8 +25,7 @@ public class MyLinkedList {
 				list.addLast(item1);
 			} else {
 				index++;
-				item2 = list.get(index);
-				add(item1, item2);
+				add(item1, index);
 			}
 		}
 	}
@@ -37,6 +36,6 @@ public class MyLinkedList {
 
 	public void addValue(int item) {
 		index = 0;
-		add(item,item);
+		add(item,index);
 	}
 }
