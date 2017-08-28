@@ -6,9 +6,10 @@ import java.util.List;
 public class MyHashTable<E, V> {
 
 	private Object[] roomBucket;
+	private static final int totalNumOfRooms = 13;
 
 	public MyHashTable() {
-		roomBucket = new Object[13];
+		roomBucket = new Object[totalNumOfRooms];
 	}
 
 	@SuppressWarnings("unchecked")
