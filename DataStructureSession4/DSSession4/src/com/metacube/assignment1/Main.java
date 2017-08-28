@@ -18,7 +18,7 @@ public class Main {
 			job.setDesignation(designation);
 			job.setMessage(message);
 			int priority = getPriority(designation.charAt(0));
-			while(priority < 1){
+			while (priority < 1) {
 				System.out.println("Designation entered is invalid !!");
 				System.out.println("Enter a Valid Designation");
 				designation = scan.nextLine();
@@ -31,20 +31,22 @@ public class Main {
 			job.setPriority(priority);
 			jobQueue[index] = job;
 		}
-		
+
 		HeapSort heap = new HeapSort();
 		heap.sort(jobQueue);
-		
+
 		for (int index = 0; index < numJobs; index++) {
-			System.out.println("\nDesignation : "+jobQueue[index].getDesignation()+"\tMessage : " + jobQueue[index].getMessage());
+			System.out.println("\nDesignation : "
+					+ jobQueue[index].getDesignation() + "\tMessage : "
+					+ jobQueue[index].getMessage());
 		}
 		scan.close();
 	}
-	
-	public static int getPriority(char ch){
-		switch(ch){
+
+	public static int getPriority(char ch) {
+		switch (ch) {
 		case 'C':
-		case 'c':	
+		case 'c':
 			return 4;
 		case 'P':
 		case 'p':
@@ -56,7 +58,7 @@ public class Main {
 		case 'u':
 			return 1;
 		default:
-				return -1;
+			return -1;
 		}
 	}
 }
