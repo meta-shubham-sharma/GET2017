@@ -29,7 +29,7 @@ public class HeapSort<T extends Comparable<T>> {
         int min = index;
         if (left <= length &&  (jobQueue[left].compareTo(jobQueue[index]) < 0) )
             min = left;
-        if (right <= length && (jobQueue[right].compareTo(jobQueue[min]) < 0))        
+        if (right <= length && (jobQueue[right].compareTo(jobQueue[min]) <= 0))        
             min = right;
  
         if (min != index)
