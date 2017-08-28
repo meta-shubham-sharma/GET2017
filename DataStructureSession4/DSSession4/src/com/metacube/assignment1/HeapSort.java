@@ -9,9 +9,9 @@ public class HeapSort<T extends Comparable<T>> {
         heapify(jobQueue);        
         for (int index = length; index > 0; index--)
         {
-            swap(jobQueue,0, index);
-            length = length-1;
-            minheap(jobQueue, 0);
+        	swap(jobQueue,0, index);
+        	length = length-1;
+            maxheap(jobQueue, 0);
         }
     }     
     /* Function to build a heap */   
@@ -19,23 +19,23 @@ public class HeapSort<T extends Comparable<T>> {
     {
         length = jobQueue.length-1;
         for (int index = length/2; index >= 0; index--)
-            minheap(jobQueue, index);        
+            maxheap(jobQueue, index);        
     }
     /* Function to swap largest element in heap */        
-    public void minheap(T jobQueue[], int index)
+    public void maxheap(T jobQueue[], int index)
     { 
         int left = 2*index ;
         int right = 2*index + 1;
-        int min = index;
-        if (left <= length &&  (jobQueue[left].compareTo(jobQueue[index]) <= 0) )
-            min = left;
-        if (right <= length && (jobQueue[right].compareTo(jobQueue[min]) <= 0))        
-            min = right;
+        int max = index;
+        if (left <= length &&  (jobQueue[left].compareTo(jobQueue[index]) < 0) )
+            max = left;
+        if (right <= length && (jobQueue[right].compareTo(jobQueue[max]) < 0))        
+            max = right;
  
-        if (min != index)
+        if (max != index)
         {
-            swap(jobQueue, index, min);
-            minheap(jobQueue, min);
+            swap(jobQueue, index, max);
+            maxheap(jobQueue, max);
         }
     }    
     /* Function to swap two numbers in an array */
