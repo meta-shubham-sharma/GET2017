@@ -17,7 +17,18 @@ public class Main {
 			String message = scan.nextLine();
 			job.setDesignation(designation);
 			job.setMessage(message);
-			job.setPriority(getPriority(designation.charAt(0)));
+			int priority = getPriority(designation.charAt(0));
+			while(priority < 1){
+				System.out.println("Designation entered is invalid !!");
+				System.out.println("Enter a Valid Designation");
+				designation = scan.nextLine();
+				System.out.println("Enter message");
+				message = scan.nextLine();
+				job.setDesignation(designation);
+				job.setMessage(message);
+				priority = getPriority(designation.charAt(0));
+			}
+			job.setPriority(priority);
 			jobQueue[index] = job;
 		}
 		
