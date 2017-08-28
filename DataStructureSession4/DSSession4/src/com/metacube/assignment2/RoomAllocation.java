@@ -20,6 +20,13 @@ public class RoomAllocation {
 	
 	public String getAllGuest(){
 		List<String> guests = hashTable.getAllValues();
-		return guests.toString();
+		String allGuests = "";
+		if(guests.isEmpty()){
+			allGuests+="No Guests are present currently !!";
+		}
+		else{
+			allGuests+=guests.toString();
+		}
+		return allGuests;
 	}
 }
