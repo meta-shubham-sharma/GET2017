@@ -3,20 +3,22 @@ package com.metacube.assignment1;
 import java.util.Scanner;
 
 public class Main {
-	@SuppressWarnings({ "unchecked", "rawtypes" })
+
+	@SuppressWarnings("rawtypes")
 	public static void main(String[] args) {
+		
 		Scanner scan = new Scanner(System.in);
+		
 		System.out.println("Enter number of jobs to be done");
 		int numJobs = Integer.parseInt(scan.nextLine());
-		Jobs jobQueue[] = new Jobs[numJobs];
+		
+		PriorityQueue queue = new PriorityQueue(numJobs);
+		
 		for (int index = 0; index < numJobs; index++) {
-			Jobs job = new Jobs();
 			System.out.println("Enter Designation");
 			String designation = scan.nextLine();
 			System.out.println("Enter message");
 			String message = scan.nextLine();
-			job.setDesignation(designation);
-			job.setMessage(message);
 			int priority = getPriority(designation.charAt(0));
 			while (priority < 1) {
 				System.out.println("Designation entered is invalid !!");
@@ -24,22 +26,16 @@ public class Main {
 				designation = scan.nextLine();
 				System.out.println("Enter message");
 				message = scan.nextLine();
-				job.setDesignation(designation);
-				job.setMessage(message);
 				priority = getPriority(designation.charAt(0));
 			}
-			job.setPriority(priority);
-			jobQueue[index] = job;
+			queue.insert(designation, message, priority);
 		}
 
-		HeapSort heap = new HeapSort();
-		heap.sort(jobQueue);
-
-		for (int index = 0; index < numJobs; index++) {
-			System.out.println("\nDesignation : "
-					+ jobQueue[index].getDesignation() + "\tMessage : "
-					+ jobQueue[index].getMessage());
+		for(int index = 0 ; index < numJobs ; index++){
+			Jobs job = queue.remove();
+			System.out.println("\nDesignation : "+job.getDesignation() + "\tMessage : "+job.getMessage());
 		}
+		
 		scan.close();
 	}
 

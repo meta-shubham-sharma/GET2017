@@ -4,6 +4,7 @@
 package com.metacube.assignment1;
 
 import static org.junit.Assert.*;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -14,7 +15,7 @@ import org.junit.Test;
 public class TestHeap {
 
 	@SuppressWarnings("rawtypes")
-	static HeapSort heap;
+	static PriorityQueue heap;
 	static Jobs jobQueue[] = {};
 
 	/**
@@ -23,22 +24,14 @@ public class TestHeap {
 	@SuppressWarnings("rawtypes")
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		jobQueue = new Jobs[2];
-		Jobs job1 = new Jobs();
+		heap = new PriorityQueue(2);
 		String designation = "UnderGraduate";
 		String message = "I am undergraduate";
-		job1.setDesignation(designation);
-		job1.setMessage(message);
-		job1.setPriority(getPriority(designation.charAt(0)));
-		jobQueue[0] = job1;
-		Jobs job2 = new Jobs();
+		heap.insert(designation, message, getPriority(designation.charAt(0)));	
+	
 		designation = "ChairPerson";
 		message = "I am chairperson";
-		job2.setDesignation(designation);
-		job2.setMessage(message);
-		job2.setPriority(getPriority(designation.charAt(0)));
-		jobQueue[1] = job2;
-		heap = new HeapSort();
+		heap.insert(designation, message, getPriority(designation.charAt(0)));	
 	}
 
 	/**
@@ -81,15 +74,16 @@ public class TestHeap {
 	/**
 	 * test sorting of queue using heap
 	 */
-	@SuppressWarnings("unchecked")
 	@Test
 	public void testHeap() {
-		heap.sort(jobQueue);
-		String actual = "";
-		for (int index = 0; index < 2; index++) {
-			actual += jobQueue[index].getDesignation() + " ";
-		}
-		String expected = "ChairPerson UnderGraduate ";
-		assertEquals(expected.toString(), actual);
+		Jobs job = heap.remove();
+		String actual = job.getDesignation()+" "+job.getMessage();
+		String expected = "ChairPerson I am chairperson";
+		assertEquals(expected,actual);
+		
+		job = heap.remove();
+		actual = job.getDesignation()+" "+job.getMessage();
+		expected = "UnderGraduate I am undergraduate";
+		assertEquals(expected,actual);
 	}
 }
