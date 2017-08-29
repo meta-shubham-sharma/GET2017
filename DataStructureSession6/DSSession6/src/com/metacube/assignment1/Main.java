@@ -75,6 +75,9 @@ public class Main {
 			case 5:
 				scan.close();
 				System.exit(0);
+			default:
+				System.out.println("Enter a valid choice !!");
+				break;
 			}
 			}catch(NumberFormatException exc){
 				System.out.println("Enter a valid choice !! "+exc);
