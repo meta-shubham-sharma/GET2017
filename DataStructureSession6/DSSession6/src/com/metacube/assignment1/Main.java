@@ -16,11 +16,12 @@ public class Main {
 		do {
 			System.out.println("\n1. Add an employee");
 			System.out.println("2. Get employee details");
-			System.out.println("3. Sort using Comparable");
-			System.out.println("4. Sort using Comaparator");
+			System.out.println("3. Sort by Id");
+			System.out.println("4. Sort by Name");
 			System.out.println("5. Exit");
 			try{
-			int choice = Integer.parseInt(scan.nextLine());
+				System.out.println("Enter a choice");
+				int choice = Integer.parseInt(scan.nextLine());
 			switch (choice) {
 			case 1:
 				System.out.println("Enter user Id of employee");
@@ -37,7 +38,7 @@ public class Main {
 				break;
 			case 2:
 				System.out.println("Enter user Id of employee");
-				id = Integer.parseInt(scan.next());
+				id = Integer.parseInt(scan.nextLine());
 				if (controller.checkEmployeeId(id)) {
 					Employee temp = controller.getEmployee(id);
 					System.out.println("\nId : " + temp.getId() + "\tName : "
@@ -49,7 +50,7 @@ public class Main {
 				break;
 			case 3:
 				Collections.sort(employeeList);
-				System.out.println("\nSorted By ID using Comaparable ");
+				System.out.println("\nSorted By Id using Comaparable ");
 				employeeList = controller.getEmployeeList();
 				Iterator<Employee> itr = employeeList.iterator();
 				while (itr.hasNext()) {
