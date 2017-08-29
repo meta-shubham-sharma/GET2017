@@ -2,7 +2,7 @@ package com.metacube.assignment1;
 
 @SuppressWarnings("rawtypes")
 public class Employee implements Comparable {
-	int id;
+	Integer id;
 	String name, address;
 	
 	public Employee(int id, String name, String address) {
@@ -14,7 +14,7 @@ public class Employee implements Comparable {
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
@@ -60,11 +60,6 @@ public class Employee implements Comparable {
 	public int compareTo(Object arg0) {
 		// TODO Auto-generated method stub
 		Employee emp = (Employee) arg0;
-		if (this.getId() > emp.getId())
-			return 1;
-		else if (this.getId() < emp.getId())
-			return -1;
-		else
-			return 0;
+		return this.getId().compareTo(emp.getId());
 	}
 }
