@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public static <E extends Comparable> void main(String[] args) {
+	public static <E> void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
 		BinarySearchTree tree = new BinarySearchTree();
 		do {
@@ -51,7 +51,7 @@ public class Main {
 					scan.close();
 					System.exit(0);
 				default:
-					System.out.println("Enter a valid choice between 1-5 !!");
+					System.out.println("Enter a valid choice between 1-4 !!");
 				}
 			} catch (NumberFormatException exc) {
 				System.out.println("Enter a valid integral choice !!" + exc);
