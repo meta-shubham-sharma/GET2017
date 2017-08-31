@@ -28,7 +28,7 @@ public class Main {
 					break;
 				case 2:
 					int[] array = tree.printInorder();
-					if (array.length == 0) {
+					if (array == null || array.length == 0) {
 						System.out
 								.println("No Roll No. are present !!");
 					} else {
