@@ -10,10 +10,10 @@ public class EmployeeController {
 
 	public EmployeeController() {
 		employeeList = new ArrayList<Employee>();
-		employeeList.add(new Employee(1, "shubham","Karol Bagh"));
-		employeeList.add(new Employee(4, "pawan","RK Colony"));
-		employeeList.add(new Employee(3, "rajat","RC Vyas Colony"));
-		employeeList.add(new Employee(2, "gourav","Lajpat Nagar"));
+		employeeList.add(new Employee(1, "shubham", "Karol Bagh"));
+		employeeList.add(new Employee(4, "pawan", "RK Colony"));
+		employeeList.add(new Employee(3, "rajat", "RC Vyas Colony"));
+		employeeList.add(new Employee(2, "gourav", "Lajpat Nagar"));
 	}
 
 	/**
@@ -22,19 +22,20 @@ public class EmployeeController {
 	public List<Employee> getEmployeeList() {
 		return employeeList;
 	}
-	
-	public boolean checkEmployeeId(int id){
+
+	public boolean checkEmployeeId(int id) {
 		boolean flag = false;
+		Employee obj = new Employee(id,"","");
 		for (Employee emp : employeeList) {
-			if (emp.getId() == id) {
+			if (emp.equals(obj)) {
 				flag = true;
 				break;
 			}
 		}
 		return flag;
 	}
-	
-	public Employee getEmployee(int id){
+
+	public Employee getEmployee(int id) {
 		employeeList = getEmployeeList();
 		for (Employee emp : employeeList) {
 			if (emp.getId() == id) {
@@ -56,4 +57,5 @@ class NameComparator implements Comparator {
 		return emp1.getName().compareTo(emp2.getName());
 	}
 
+	
 }
