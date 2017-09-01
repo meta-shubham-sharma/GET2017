@@ -48,10 +48,10 @@ public class Main {
 				case 2:
 					if (system.checkTotalDigits(system.getArray())) {
 						System.out.println("Radix Sort is used !!");
-						RadixSort.sort(system.getArray());
+						RadixSort.RadixSorts(system.getArray());
 					} else {
 						System.out.println("Counting Sort is used !!");
-						CountingSort.sort(system.getArray());
+						CountingSort.CountingSorts(system.getArray());
 					}
 					System.out.println("\nSorted List :");
 					System.out.println(system);

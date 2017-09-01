@@ -24,32 +24,31 @@ public class SortingSystem {
 	public int[] getArray() {
 		return array;
 	}
-	
-	public boolean checkTotalDigits(int[] input){
+
+	public boolean checkTotalDigits(int[] input) {
 		boolean flag = false;
 		for (int index = 0; index < input.length; index++) {
-			if( input[index] >= 100 ){
+			if (input[index] >= 100 || input[index] <= -100) {
 				flag = true;
 				break;
 			}
 		}
 		return flag;
 	}
-	
+
 	@Override
-	public String toString(){
+	public String toString() {
 		String result = "";
 		for (int index = 0; index < getSize(); index++) {
-			result+=array[index]+" ";
+			result += array[index] + " ";
 		}
 		return result;
 	}
-	
-	public boolean checkLength(int num){
-		if(num<10){
+
+	public boolean checkLength(int num) {
+		if (num < 10) {
 			return true;
-		}
-		else{
+		} else {
 			return false;
 		}
 	}

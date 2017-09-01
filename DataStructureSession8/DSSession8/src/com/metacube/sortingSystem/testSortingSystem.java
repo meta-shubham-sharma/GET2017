@@ -51,7 +51,7 @@ public class testSortingSystem {
 		SortingSystem system = new SortingSystem(input.length);
 		String actual = "", expected = "";
 		if (!system.checkTotalDigits(input)) {
-			actual += CountingSort.sort(input);
+			actual += CountingSort.CountingSorts(input);
 			expected = "[1, 23, 23, 23, 34, 34, 65, 78]";
 		}
 		assertEquals(expected, actual);
@@ -66,7 +66,7 @@ public class testSortingSystem {
 		SortingSystem system = new SortingSystem(input.length);
 		String actual = "", expected = "";
 		if (system.checkTotalDigits(input)) {
-			actual += RadixSort.sort(input);
+			actual += RadixSort.RadixSorts(input);
 			expected = "[1, 23, 23, 34, 34, 65, 123, 178]";
 		}
 		assertEquals(expected, actual);
