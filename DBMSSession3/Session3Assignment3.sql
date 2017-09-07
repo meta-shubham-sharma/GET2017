@@ -3,9 +3,8 @@ USE LIS;
 /*Assignment 3.1 select count of different categories*/
 SELECT (SELECT COUNT(member_id) FROM members WHERE category = 'S') AS Students,
 (SELECT COUNT(member_id) FROM members WHERE category = 'F') AS Faculty,
-(SELECT COUNT(member_id) FROM members WHERE category = 'O') AS Others,
-GROUP_CONCAT(DISTINCT(category)) AS Categories 
-FROM members;
+(SELECT COUNT(member_id) FROM members WHERE category = 'O') AS Others
+FROM members group by Students;
 
 /*Assignment 3.2 select details of title when book is iisued more than once*/
 SELECT t.title_nm , t.title_id 
