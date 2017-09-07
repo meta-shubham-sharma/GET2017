@@ -64,10 +64,7 @@ INSERT INTO categories(category_id,parent_id,category) VALUES('SA1','WM1','Semi 
 INSERT INTO categories(category_id,parent_id,category) VALUES('TL1','FA1','Top Load');
 INSERT INTO categories(category_id,parent_id,category) VALUES('FL1','FA1','Front Load');
 
-SELECT category_id,parent_id FROM categories;
-
-SELECT category_id,parent_id FROM categories order by parent_id;
-
-SELECT category_id,category,IFNULL(parent_id,'Top Category') as ParentId FROM categories;
+SELECT category_id,category,IFNULL(parent_id,'Top Category') as ParentId
+FROM categories order by parent_id;
 
 SELECT category_id,category FROM categories where parent_id IS NULL ;
