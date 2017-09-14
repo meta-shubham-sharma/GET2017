@@ -22,7 +22,6 @@ public class DBConnection {
 		} catch (ClassNotFoundException exc) {
 			System.out.println("Error loading driver " + exc);
 		}
-
 	}
 
 	/**
