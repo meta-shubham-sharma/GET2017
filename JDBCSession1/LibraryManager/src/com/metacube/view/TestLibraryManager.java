@@ -15,16 +15,29 @@ import com.metacube.model.Titles;
 public class TestLibraryManager {
 
 	static DBHelper object;
+	
+	/**
+	 * set up resources to call methods
+	 * @throws Exception
+	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		object = new DBHelper();
 	}
 
+	/**
+	 * free resources and close connections
+	 * @throws Exception
+	 */
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 		object.closeConnection();
+		object = null;
 	}
 
+	/**
+	 * test to check details of book by name of author
+	 */
 	@Test
 	public void testBookDetails() {
 		try {
@@ -38,6 +51,9 @@ public class TestLibraryManager {
 		}
 	}
 
+	/**
+	 * test to check whether book can be issued or not
+	 */
 	@Test
 	public void testCheckBook() {
 		try {
@@ -53,6 +69,9 @@ public class TestLibraryManager {
 		}
 	}
 	
+	/**
+	 * test to check number of books deleted which have not been issued for last year 
+	 */
 	@Test
 	public void testDeleteBooks() {
 		try {
