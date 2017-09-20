@@ -3,6 +3,9 @@
 	padding:15px;
 	color:white;
 }
+#logo h1{
+	margin-left:-15px;
+}
 .user-icon {
 	background-color:#F0677C;
 	padding:20px;
@@ -17,14 +20,17 @@
 }
 .container h2{
 	color:#c36464;
-	padding:10px;
+	padding:10px 10px 20px 0px;
 	border-bottom:2px solid #c36464;
 }
 .alert-success{
+	margin-top:30px;
 	padding:20px;
 }
-
-.container h3{
+.panel-default{
+	border-radius:0px;
+}
+.container h4{
 		color:white;
 }
 #layer1{
@@ -80,7 +86,7 @@
 	border:1px solid black;
 }
 .alert-danger{
-	padding:15px;
+	padding:20px;
 	border-radius:5px;
 	border:1px solid;
 }
@@ -89,6 +95,7 @@
 }
 .buttons{
 	margin-top:2px;
+	border-radius:0px;
 }
 #wells{
 	background-color:#fcf8e3;
@@ -103,19 +110,31 @@ footer{
 .facebook-btn{
 	color:white;
 	background-color:#6279a7;
+	border-radius:0px;
+}
+.facebook-btn:hover,.facebook-btn:focus,.facebook-btn:active,.google-btn:hover,.google-btn:focus,.google-btn:active,.twitter-btn:hover,.twitter-btn:focus,.twitter-btn:active{
+	color:white;
+}
+.btn-warning,.btn-info,.btn-success,.btn-success{
+	border-radius:0px;
 }
 .google-btn{
 	color:white;
-	
 	background-color:#cf573a;
+	border-radius:0px;
 }
 .twitter-btn{
 	color:white;
 	background-color:#33bbeb;
+	border-radius:0px;
 }
 .linkedin-btn{
 	color:white;
 	background-color:#3e90b4;
+	border-radius:0px;
+}
+.linkedin-btn:hover,.linkedin-btn:focus,.linkedin-btn:active{
+	color:white;
 }
 .navbar-toggle{
 	background-color:#F0677C;
