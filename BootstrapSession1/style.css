@@ -112,7 +112,7 @@ footer{
 	background-color:#6279a7;
 	border-radius:0px;
 }
-.facebook-btn:hover,.facebook-btn:focus,.facebook-btn:active,.google-btn:hover,.google-btn:focus,.google-btn:active,.twitter-btn:hover,.twitter-btn:focus,.twitter-btn:active{
+.linkedin-btn:hover,.linkedin-btn:focus,.linkedin-btn:active,.facebook-btn:hover,.facebook-btn:focus,.facebook-btn:active,.google-btn:hover,.google-btn:focus,.google-btn:active,.twitter-btn:hover,.twitter-btn:focus,.twitter-btn:active{
 	color:white;
 }
 .btn-warning,.btn-info,.btn-success,.btn-success{
@@ -132,9 +132,6 @@ footer{
 	color:white;
 	background-color:#3e90b4;
 	border-radius:0px;
-}
-.linkedin-btn:hover,.linkedin-btn:focus,.linkedin-btn:active{
-	color:white;
 }
 .navbar-toggle{
 	background-color:#F0677C;
