@@ -1,0 +1,22 @@
+html,
+body {
+margin:0;
+padding:0;
+height:100%;
+margin-bottom: 50px;
+}
+.my {
+padding-bottom: 50px;
+}
+footer {
+position: fixed;
+background-color: #5777A8;;
+bottom: 0px;
+left: 0px;
+right: 0px;
+z-index: 1;
+background-color:#2874f0;
+color: white;
+text-align:center;
+padding:15px;
+}
